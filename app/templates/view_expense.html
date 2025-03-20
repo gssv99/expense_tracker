@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Expenses</title>
+</head>
+<body>
+    <h1>View Expenses</h1>
+    <table border="1">
+        <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense[0] }}</td>
+            <td>{{ expense[1] }}</td>
+            <td>{{ expense[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

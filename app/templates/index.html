@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <ul>
+        <li><a href="{{ url_for('add_expense') }}">Add Expense</a></li>
+        <li><a href="{{ url_for('view_expenses') }}">View Expenses</a></li>
+        <li><a href="{{ url_for('summarize_expenses') }}">View Summary</a></li>
+    </ul>
+</body>
+</html>
