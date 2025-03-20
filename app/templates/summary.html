@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .chart-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Expense Summary</h1>
-    <img src="{{ url_for('static', filename='summary.png') }}" alt="Expense Summary Chart">
+    <div class="chart-container">
+        <img src="{{ url_for('static', filename='summary.png') }}" alt="Expense Summary Chart">
+    </div>
     <a href="{{ url_for('index') }}">Back to Home</a>
 </body>
 </html>
