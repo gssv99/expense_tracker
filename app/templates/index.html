@@ -1,4 +1,32 @@
-<!DOCTYPE html>
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h2>Welcome to the Expenses Tracker</h2>
+    <p>Track your expenses easily and efficiently.</p>
+    <div class="cta-buttons">
+        <a href="{{ url_for('add_expense') }}" class="btn">Add Expense</a>
+        <a href="{{ url_for('view_expenses') }}" class="btn btn-outline">View Expenses</a>
+    </div>
+</div>
+
+<section class="features">
+    <div class="feature">
+        <h3>Simple & Intuitive</h3>
+        <p>Easily add and manage your expenses with a user-friendly interface.</p>
+    </div>
+    <div class="feature">
+        <h3>Track Spending</h3>
+        <p>Monitor your expenses by category and date to stay on top of your budget.</p>
+    </div>
+    <div class="feature">
+        <h3>Secure & Reliable</h3>
+        <p>Your data is stored securely and accessible anytime.</p>
+    </div>
+</section>
+{% endblock %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,4 +41,4 @@
         <li><a href="{{ url_for('summarize_expenses') }}">View Summary</a></li>
     </ul>
 </body>
-</html>
+</html> -->
