@@ -36,15 +36,6 @@ def add_expense():
 
 @app.route('/view')
 def view_expenses():
-    expenses = []
-    with open(EXPENSES_FILE, 'r') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            expenses.append(row)
-    return render_template('view_expenses.html', expenses=expenses)
-
-@app.route('/summary')
-def summarize_expenses():
     categories = {}
     total_amount = 0  # Initialize total amount
 
@@ -61,4 +52,5 @@ def summarize_expenses():
             else:
                 categories[category] = amount
 
-    return render_template('summary.html', categories=categories, total_amount=total_amount)
+    return render_template('view_expenses.html', categories=categories, total_amount=total_amount)
+
