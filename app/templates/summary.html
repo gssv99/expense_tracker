@@ -20,6 +20,23 @@
             max-width: 100%;
             height: auto;
         }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr.total-row {
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
         a {
             display: inline-block;
             margin-top: 20px;
@@ -36,6 +53,26 @@
     <div class="chart-container">
         <img src="{{ url_for('static', filename='summary.png') }}" alt="Expense Summary Chart">
     </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Total Spending</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category, amount in categories.items() %}
+            <tr>
+                <td>{{ category }}</td>
+                <td>{{ amount }}</td>
+            </tr>
+            {% endfor %}
+            <tr class="total-row">
+                <td><strong>Total</strong></td>
+                <td><strong>{{ total_amount }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
     <a href="{{ url_for('index') }}">Back to Home</a>
 </body>
 </html>

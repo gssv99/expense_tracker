@@ -46,24 +46,19 @@ def view_expenses():
 @app.route('/summary')
 def summarize_expenses():
     categories = {}
-    with open(EXPENSES_FILE, 'r') as file:
+    total_amount = 0  # Initialize total amount
+
+    with open('expenses.csv', 'r') as file:
         reader = csv.reader(file)
         next(reader)  # Skip header
         for row in reader:
             category = row[1]
             amount = float(row[0])
+            total_amount += amount  # Add to total amount
+
             if category in categories:
                 categories[category] += amount
             else:
                 categories[category] = amount
 
-    # Generate a bar chart
-    plt.bar(categories.keys(), categories.values())
-    plt.xlabel('Categories')
-    plt.ylabel('Total Spending')
-    plt.title('Spending by Category')
-    chart_path = 'static/summary.png'
-    plt.savefig(chart_path)
-    plt.close()
-
-    return render_template('summary.html', chart_path=chart_path)
+    return render_template('summary.html', categories=categories, total_amount=total_amount)
